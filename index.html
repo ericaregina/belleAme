@@ -1,0 +1,463 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>Studio Belle Âme</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600&family=Open+Sans&display=swap"
+    rel="stylesheet">
+  <style>
+    body {
+      font-family: 'Open Sans', sans-serif;
+      background-color: #f9f2f6;
+      transition: background-color 1s ease;
+    }
+
+    h1,
+    h2,
+    h3 {
+      font-family: 'Playfair Display', serif;
+    }
+  </style>
+  <script>
+
+    document.addEventListener('gesturestart', e => e.preventDefault());
+    document.addEventListener('gesturechange', e => e.preventDefault());
+    document.addEventListener('gestureend', e => e.preventDefault());
+
+
+    window.addEventListener('wheel', e => {
+      if (e.ctrlKey) e.preventDefault();
+    }, { passive: false });
+
+
+    window.addEventListener('keydown', e => {
+      if ((e.ctrlKey || e.metaKey) && ['+', '-', '=', '0'].includes(e.key)) {
+        e.preventDefault();
+      }
+    });
+  </script>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+
+<body class="relative text-gray-800">
+  <div class="relative z-10">
+    <header class="fixed w-full bg-rose-50 shadow-md rounded-b-2xl z-50">
+
+      <div class="container mx-auto flex justify-between items-center px-6 py-4">
+        <h1 class="text-2xl font-bold text-rose-700" id="site-name">Belle Âme</h1>
+        <nav class="space-x-6 hidden md:flex">
+          <a href="#sobre" class="hover:text-rose-600" id="nav-about">Sobre</a>
+          <a href="#servicos" class="hover:text-rose-600" id="nav-services">Serviços</a>
+          <a href="#depoimentos" class="hover:text-rose-600" id="nav-testimonials">Depoimentos</a>
+          <a href="#contato" class="hover:text-rose-600" id="nav-contact">Contato</a>
+        </nav>
+
+        <button id="menu-toggle" class="md:hidden text-rose-700">
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" class="w-6 h-6">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+          </svg>
+        </button>
+        
+        <div class="flex items-center space-x-4">
+          <button id="toggleLang" class="bg-rose-600 text-white py-2 px-4 rounded-full text-sm">PT/ENG</button>
+        </div>
+      </div>
+
+      <div id="mobile-menu"
+        class="md:hidden bg-white absolute top-0 left-0 w-full h-screen bg-opacity-90 transform translate-x-full transition-all">
+        <div class="flex justify-end p-4">
+          <button id="close-menu" class="text-rose-700">
+            <svg xmlns="menu.png" fill="none" viewBox="0 0 24 24" stroke="currentColor" class="w-6 h-6">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+            </svg>
+          </button>
+        </div>
+        <div class="flex flex-col items-center">
+          <a href="#sobre" class="py-4 text-2xl text-rose-700 hover:text-rose-600" id="nav-about-mobile">Sobre</a>
+          <a href="#servicos" class="py-4 text-2xl text-rose-700 hover:text-rose-600"
+            id="nav-services-mobile">Serviços</a>
+          <a href="#depoimentos" class="py-4 text-2xl text-rose-700 hover:text-rose-600"
+            id="nav-testimonials-mobile">Depoimentos</a>
+          <a href="#contato" class="py-4 text-2xl text-rose-700 hover:text-rose-600" id="nav-contact-mobile">Contato</a>
+        </div>
+      </div>
+    </header>
+
+
+    <section class="h-screen bg-cover bg-center flex items-center justify-center text-white text-center">
+      <div class="flex flex-col items-center animate-fade-in-up">
+        <h2 class="text-4xl md:text-5xl font-bold mb-4 text-rose-700" id="hero-title">Beleza é um poder.</h2>
+        <p class="mb-6 text-gray-700" id="hero-description">Realce sua essência no Studio Belle Âme com carinho e
+          excelência.</p>
+        <a href="#contato" class="bg-rose-600 hover:bg-rose-700 text-white py-3 px-6 rounded-full text-lg transition"
+          id="hero-cta">Agende seu horário</a>
+      </div>
+    </section>
+
+    <style>
+      @keyframes fadeInUp {
+        0% {
+          opacity: 0;
+          transform: translateY(20px);
+        }
+
+        100% {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      .animate-fade-in-up {
+        animation: fadeInUp 1s ease-out forwards;
+      }
+    </style>
+
+
+
+    <section id="sobre" class="py-20 flex justify-center items-center min-h-screen">
+      <div class="max-w-3xl px-6 text-center">
+        <h3 class="text-3xl font-bold mb-4 text-rose-700" id="about-title">Sobre o Studio</h3>
+        <p class="text-gray-700 mb-4" id="about-description">
+          Com mais de anos de experiência, o Studio Belle Âme é referência em cuidados de beleza, estética e bem-estar.
+          Aqui, cada cliente é única e merece um atendimento personalizado.
+        </p>
+        <p class="text-gray-700" id="about-text">
+          Nossos profissionais são altamente qualificados e prontos para transformar o seu dia com carinho e dedicação.
+        </p>
+      </div>
+    </section>
+
+
+
+    <section id="servicos" class="py-20">
+      <div class="container mx-auto px-6 text-center">
+        <h3 class="text-3xl font-bold mb-12 text-rose-700" id="services-title">Nossos Serviços</h3>
+        <div class="grid md:grid-cols-3 gap-10">
+
+          <div class="relative rounded-xl shadow-md p-6 overflow-hidden text-center">
+
+            <img src="sobrancelha.jpg" class="mx-auto mb-4" />
+            <h4 class="text-xl font-semibold mb-2" id="service1-title">Design de Sobrancelhas</h4>
+            <p class="text-gray-600" id="service1-description">Realce seu olhar com técnicas modernas e precisas.</p>
+            <ul class="text-gray-600 mt-4" id="service1-list">
+              <li>● Depilação com Cera ou Pinça</li>
+              <li>● Correção de Formato</li>
+              <li>● Design Fio a Fio</li>
+              <li>● Brow Lamination</li>
+              <li>● Tonalização</li>
+            </ul>
+
+            <div
+              class="absolute top-4 right-4 w-12 h-12 bg-rose-600 text-white rounded-full flex items-center justify-center cursor-pointer transition-transform hover:scale-110"
+              onclick="showPrice('service1-price')">
+              <span class="text-2xl font-bold">$</span>
+            </div>
+
+            <div id="service1-price"
+              class="hidden mt-4 text-rose-600 font-bold text-xl transition-all opacity-0 transform scale-50">
+              R$ 60,00
+            </div>
+          </div>
+
+
+          <div class="relative rounded-xl shadow-md p-6 overflow-hidden text-center">
+
+            <img src="pele.jpg" class="mx-auto mb-4" />
+            <h4 class="text-xl font-semibold mb-2" id="service2-title">Limpeza de Pele</h4>
+            <p class="text-gray-600" id="service2-description">Cuidamos da sua pele com produtos de alta qualidade.</p>
+            <ul class="text-gray-600 mt-4" id="service2-list">
+              <li>● Extração de Cravos/Espinhas</li>
+              <li>● Exfoliação Profunda</li>
+              <li>● Peeling Facial</li>
+              <li>● Hidratação</li>
+            </ul>
+
+            <div
+              class="absolute top-4 right-4 w-12 h-12 bg-rose-600 text-white rounded-full flex items-center justify-center cursor-pointer transition-transform hover:scale-110"
+              onclick="showPrice('service2-price')">
+              <span class="text-2xl font-bold">$</span>
+            </div>
+
+            <div id="service2-price"
+              class="hidden mt-4 text-rose-600 font-bold text-xl transition-all opacity-0 transform scale-50">
+              R$ 120,00
+            </div>
+          </div>
+
+
+          <div class="relative rounded-xl shadow-md p-6 overflow-hidden text-center">
+
+            <img src="unha.jpg" class="mx-auto mb-4" />
+            <h4 class="text-xl font-semibold mb-2" id="service3-title">Manicure & Pedicure</h4>
+            <p class="text-gray-600" id="service3-description">Beleza nas mãos e pés com muito capricho.</p>
+            <ul class="text-gray-600 mt-4" id="service3-list">
+              <li>● Corte e Modelagem das Unhas</li>
+              <li>● Aplicação em Gel (Pés e Mãos)</li>
+              <li>● Estileto, Almond, Quadrada</li>
+              <li>● Unhas de Fibra</li>
+            </ul>
+
+            <div
+              class="absolute top-4 right-4 w-12 h-12 bg-rose-600 text-white rounded-full flex items-center justify-center cursor-pointer transition-transform hover:scale-110"
+              onclick="showPrice('service3-price')">
+              <span class="text-2xl font-bold">$</span>
+            </div>
+
+            <div id="service3-price"
+              class="hidden mt-4 text-rose-600 font-bold text-xl transition-all opacity-0 transform scale-50">
+              R$ 120,00
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+
+    <script>
+      function showPrice(id) {
+        const priceElement = document.getElementById(id);
+        priceElement.classList.toggle('hidden');
+        priceElement.classList.toggle('opacity-0');
+        priceElement.classList.toggle('scale-50');
+        priceElement.classList.add('transition-all', 'duration-500', 'ease-out');
+      }
+    </script>
+
+
+
+
+
+    <section id="depoimentos" class="bg-rose-20 py-20">
+      <div class="container mx-auto px-6 text-center">
+        <h3 class="text-3xl font-bold mb-12 text-rose-700" id="testimonials-title">Depoimentos</h3>
+        <div class="grid md:grid-cols-3 gap-8">
+          <div class="bg-rose-10 p-6 rounded-xl shadow">
+            <p class="text-gray-600 mb-4 italic">“Experiência maravilhosa! Atendimento excelente e resultado incrível.”
+            </p>
+            <p class="font-semibold text-rose-600">— Ana Paula</p>
+          </div>
+          <div class="bg-transparent p-6 rounded-xl shadow">
+            <p class="text-gray-600 mb-4 italic">“Sempre saio do Studio me sentindo renovada! Recomendo demais.”</p>
+            <p class="font-semibold text-rose-600">— Camila Rocha</p>
+          </div>
+          <div class="bg-transparent p-6 rounded-xl shadow">
+            <p class="text-gray-600 mb-4 italic">“Ambiente acolhedor, profissionais maravilhosos e serviço de
+              qualidade.”</p>
+            <p class="font-semibold text-rose-600">— Bruna Lima</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+
+    <section id="contato" class="py-20 bg-rose-20">
+      <div class="container mx-auto px-6 text-center">
+        <p class="mb-8 text-gray-600" id="contact-description">Entre em contato pelo WhatsApp e marque seu momento de
+          beleza.</p>
+        <a href="https://wa.me/seunumero" target="_blank"
+          class="inline-block bg-rose-600 hover:bg-rose-500 text-white py-3 px-8 rounded-full text-lg transition"
+          id="whatsapp-button">Falar no WhatsApp</a>
+      </div>
+    </section>
+
+
+    <footer class="bg-rose-600 text-white py-6 text-center rounded-tl-xl rounded-tr-xl">
+      <p id="footer-text">&copy; 2025 Studio Belle Âme. Todos os direitos reservados.</p>
+    </footer>
+
+
+
+
+
+    <script>
+      const toggleLangButton = document.getElementById('toggleLang');
+      let isPortuguese = true;
+
+      const texts = {
+        pt: {
+          heroTitle: "Beleza é um poder.",
+          heroDescription: "Realce sua essência no Studio Belle Âme com carinho e excelência.",
+          aboutTitle: "Sobre o Studio",
+          aboutDescription: "Com mais de 5 anos de experiência, o Studio Belle Âme é referência em cuidados de beleza, estética e bem-estar. Aqui, cada cliente é única e merece um atendimento personalizado.",
+          aboutText: "Nossos profissionais são altamente qualificados e prontos para transformar o seu dia com carinho e dedicação.",
+          servicesTitle: "Nossos Serviços",
+          service1Title: "Design de Sobrancelhas",
+          service1Description: "Realce seu olhar com técnicas modernas e precisas.",
+          service2Title: "Limpeza de Pele",
+          service2Description: "Cuidamos da sua pele com produtos de alta qualidade.",
+          service3Title: "Manicure & Pedicure",
+          service3Description: "Beleza nas mãos e pés com muito capricho.",
+          testimonialsTitle: "Depoimentos",
+          contactDescription: "Entre em contato pelo WhatsApp e marque seu momento de beleza.",
+          whatsappButton: "Falar no WhatsApp",
+          footerText: "&copy; 2025 Studio Belle Âme. Todos os direitos reservados.",
+          heroCta: "Agende seu horário",
+          service1Items: [
+            "● Depilação com Cera ou Pinça",
+            "● Correção de Formato",
+            "● Design Fio a Fio",
+            "● Brow Lamination",
+            "● Tonalização"
+          ],
+          service2Items: [
+            "● Extração de Cravos/Espinhas",
+            "● Exfoliação Profunda",
+            "● Peeling Facial",
+            "● Hidratação"
+          ],
+          service3Items: [
+            "● Corte e Modelagem das Unhas",
+            "● Aplicação em Gel (Pés e Mãos)",
+            "● Estileto, Almond, Quadrada",
+            "● Unhas de Fibra"
+          ],
+          navAbout: "Sobre",
+          navServices: "Serviços",
+          navTestimonials: "Depoimentos",
+          navContact: "Contato"
+        },
+        en: {
+          heroTitle: "Beauty is power.",
+          heroDescription: "Enhance your essence at Studio Belle Âme with care and excellence.",
+          aboutTitle: "About the Studio",
+          aboutDescription: "With over 5 years of experience, Studio Belle Âme is a reference in beauty, aesthetics, and well-being. Here, every client is unique and deserves personalized service.",
+          aboutText: "Our professionals are highly qualified and ready to transform your day with care and dedication.",
+          servicesTitle: "Our Services",
+          service1Title: "Eyebrow Design",
+          service1Description: "Enhance your look with modern and precise techniques.",
+          service2Title: "Facial Cleaning",
+          service2Description: "We care for your skin with high-quality products.",
+          service3Title: "Manicure & Pedicure",
+          service3Description: "Beauty for your hands and feet with a lot of care.",
+          testimonialsTitle: "Testimonials",
+          contactDescription: "Contact us via WhatsApp and schedule your beauty moment.",
+          whatsappButton: "Talk on WhatsApp",
+          footerText: "&copy; 2025 Studio Belle Âme. All rights reserved.",
+          heroCta: "Schedule your appointment",
+          service1Items: [
+            "● Shape Correction",
+            "● Hair by Hair Design",
+            "● Brow Lamination",
+            "● Tinting",
+            "● Waxing or Tweezing"
+          ],
+          service2Items: [
+            "● Blackhead/Acne Extraction",
+            "● Deep Exfoliation",
+            "● Facial Peeling",
+            "● Hydration"
+          ],
+          service3Items: [
+            "● Nail Trimming and Shaping",
+            "● Gel Application (Hands & Feet)",
+            "● Fiberglass Nails",
+            "● Stiletto, Almond, Square"
+          ],
+          navAbout: "About",
+          navServices: "Services",
+          navTestimonials: "Testimonials",
+          navContact: "Contact"
+        }
+      };
+
+      toggleLangButton.addEventListener("click", () => {
+        isPortuguese = !isPortuguese;
+        const language = isPortuguese ? "pt" : "en";
+
+
+        document.getElementById('hero-title').textContent = texts[language].heroTitle;
+        document.getElementById('hero-description').textContent = texts[language].heroDescription;
+        document.getElementById('about-title').textContent = texts[language].aboutTitle;
+        document.getElementById('about-description').textContent = texts[language].aboutDescription;
+        document.getElementById('about-text').textContent = texts[language].aboutText;
+        document.getElementById('services-title').textContent = texts[language].servicesTitle;
+        document.getElementById('service1-title').textContent = texts[language].service1Title;
+        document.getElementById('service1-description').textContent = texts[language].service1Description;
+        document.getElementById('service2-title').textContent = texts[language].service2Title;
+        document.getElementById('service2-description').textContent = texts[language].service2Description;
+        document.getElementById('service3-title').textContent = texts[language].service3Title;
+        document.getElementById('service3-description').textContent = texts[language].service3Description;
+        document.getElementById('testimonials-title').textContent = texts[language].testimonialsTitle;
+        document.getElementById('contact-description').textContent = texts[language].contactDescription;
+        document.getElementById('footer-text').innerHTML = texts[language].footerText;
+        document.getElementById('hero-cta').textContent = texts[language].heroCta;
+        document.getElementById('whatsapp-button').textContent = texts[language].whatsappButton;
+
+
+        document.getElementById('nav-about').textContent = texts[language].navAbout;
+        document.getElementById('nav-services').textContent = texts[language].navServices;
+        document.getElementById('nav-testimonials').textContent = texts[language].navTestimonials;
+        document.getElementById('nav-contact').textContent = texts[language].navContact;
+
+        document.getElementById('nav-about-mobile').textContent = texts[language].navAbout;
+        document.getElementById('nav-services-mobile').textContent = texts[language].navServices;
+        document.getElementById('nav-testimonials-mobile').textContent = texts[language].navTestimonials;
+        document.getElementById('nav-contact-mobile').textContent = texts[language].navContact;
+
+
+        updateList("service1-list", texts[language].service1Items);
+        updateList("service2-list", texts[language].service2Items);
+        updateList("service3-list", texts[language].service3Items);
+      });
+
+
+      function updateList(listId, items) {
+        const list = document.getElementById(listId);
+        list.innerHTML = "";
+        items.forEach(item => {
+          const li = document.createElement("li");
+          li.textContent = item;
+          list.appendChild(li);
+        });
+      }
+
+
+      const menuToggleButton = document.getElementById('menu-toggle');
+      const mobileMenu = document.getElementById('mobile-menu');
+      const closeMenuButton = document.getElementById('close-menu');
+      const menuItems = document.querySelectorAll('#mobile-menu a');
+      const service1List = document.querySelectorAll("#service1-list li");
+      const service2List = document.querySelectorAll("#service2-list li");
+      const service3List = document.querySelectorAll("#service3-list li");
+
+      menuToggleButton.addEventListener('click', () => {
+        mobileMenu.classList.toggle('translate-x-full');
+      });
+
+      closeMenuButton.addEventListener('click', () => {
+        mobileMenu.classList.add('translate-x-full');
+      });
+
+
+      menuItems.forEach(item => {
+        item.addEventListener('click', (e) => {
+          e.preventDefault();
+          const targetId = item.getAttribute('href').slice(1);
+          const targetSection = document.getElementById(targetId);
+
+          // Rola até a seção
+          targetSection.scrollIntoView({
+            behavior: 'smooth', // Rolagem suave
+            block: 'start' // A seção começa no topo da janela
+          });
+
+          // Fecha o menu após o clique
+          mobileMenu.classList.add('translate-x-full');
+        });
+      });
+
+      texts[language].service1Items.forEach((item, i) => {
+        if (service1List[i]) service1List[i].textContent = item;
+      });
+      texts[language].service2Items.forEach((item, i) => {
+        if (service2List[i]) service2List[i].textContent = item;
+      });
+      texts[language].service3Items.forEach((item, i) => {
+        if (service3List[i]) service3List[i].textContent = item;
+      });
+
+
+    </script>
