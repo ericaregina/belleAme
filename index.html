@@ -338,11 +338,12 @@
           footerText: "&copy; 2025 Studio Belle Âme. All rights reserved.",
           heroCta: "Schedule your appointment",
           service1Items: [
-            "● Shape Correction",
             "● Hair by Hair Design",
+            "● Waxing or Tweezing",
+            "● Shape Correction",
             "● Brow Lamination",
-            "● Tinting",
-            "● Waxing or Tweezing"
+            "● Tinting"
+            
           ],
           service2Items: [
             "● Blackhead/Acne Extraction",
@@ -438,13 +439,13 @@
           const targetId = item.getAttribute('href').slice(1);
           const targetSection = document.getElementById(targetId);
 
-          // Rola até a seção
+          
           targetSection.scrollIntoView({
-            behavior: 'smooth', // Rolagem suave
-            block: 'start' // A seção começa no topo da janela
+            behavior: 'smooth', 
+            block: 'start' 
           });
 
-          // Fecha o menu após o clique
+          
           mobileMenu.classList.add('translate-x-full');
         });
       });
